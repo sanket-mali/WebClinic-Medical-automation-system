@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale:1">
+  <meta http-equiv="Page-Enter" content="revealTrans(Duration=50,Transition=13)">
+	<meta http-equiv="Page-Exit" content="revealTrans(Duration=50,Transition=13)">
+  <title>
+  </title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header id="myHeader">
+<div id="header-content">
+  <a href="index.html" id ="logo"><img src="img/header-logo.png" id="logoim"></a>
+  <nav>
+    <a href="#" id="menu-icon" ></a>
+    <ul>
+      <li><a href="index.html" style="color:#9f4eb6">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</header>
+<section id="first-page">
+    <img src="img/first.jpg" style="display:block" id=web-banner>
+</section>
+<section class="dct-banner">
+  <div id="doctor-banner">
+  <p>Are you a Doctor</p>
+  </div>
+</section>
+<section class="one-fifth" id="reg">
+  <img src="">
+</section>
+<section class="one-fifth" id="prof">
+  <img src="img/dctr-profile.png">
+</section>
+<section class="one-fifth" id="rec">
+  <img src="img/dctr-record.jpg">
+</section>
+<section class="one-fifth" id="pres">
+  <img src="img/dctr-prescr.jpg">
+</section>
+<!--how to-->
+<section class="left-wrapper">
+  <article id="register">
+    <img src="img/dctr-profile.png">
+  </article>
+  <aside id="register">
+    <h2>title1</h2>
+    <p>this is title 1</p>
+  </aside>
+</section>
+<section class="right-wrapper">
+  <article id="profile">
+    <h2>title2</h2>
+    <p>this is title 2</p>
+  </article>
+  <aside id="profile">
+  <img src="img/dctr-profile.png">
+  </aside>
+</section>
+<section class="left-wrapper">
+  <article id="history">
+    <img src="img/dctr-profile.png">
+  </article>
+  <aside id="history">
+    <h2>title3</h2>
+    <p>this is title 3</p>
+  </aside>
+</section>
+<section class="right-wrapper">
+  <article id="prescription">
+    <h2>title4</h2>
+    <p>this is title 4</p>
+  </article>
+  <aside id="prescription">
+  <img src="img/dctr-profile.png">
+  </aside>
+</section>
+
+<div id="patient-banner">
+&nbsp;
+  <p>Are you a patient</p>
+</div>
+<section class="one-fifth" id="prof">
+  <img src="img/dctr-profile.png">
+</section>
+<section class="one-fifth" id="doc">
+  <img src="img/pat-doctor.png">
+</section>
+<section class="one-fifth" id="med">
+  <img src="img/pat-meddata.jpg">
+</section>
+<section class="one-fifth" id="sch">
+  <img src="img/pat-schedule.jpg">
+</section>
+<section class="one-fifth" id="pres">
+  <img src="img/pat-presc.jpg">
+</section>
+
+<!--how to-->
+<section class="left-wrapper">
+  <article id="register">
+    <img src="img/dctr-profile.png">
+  </article>
+  <aside id="register">
+    <h2>title1</h2>
+    <p>this is title 1</p>
+  </aside>
+</section>
+<section class="right-wrapper">
+  <article id="profile">
+    <h2>title2</h2>
+    <p>this is title 2</p>
+  </article>
+  <aside id="profile">
+  <img src="img/dctr-profile.png">
+  </aside>
+</section>
+<section class="left-wrapper">
+  <article id="searchdoc">
+    <img src="img/dctr-profile.png">
+  </article>
+  <aside id="searchdoc">
+    <h2>title3</h2>
+    <p>this is title 3</p>
+  </aside>
+</section>
+<section class="right-wrapper">
+  <article id="meddata">
+    <h2>title4</h2>
+    <p>this is title 4</p>
+  </article>
+  <aside id="meddata">
+  <img src="img/dctr-profile.png">
+  </aside>
+</section>
+<section class="left-wrapper">
+  <article id="prescrp">
+    <img src="img/dctr-profile.png">
+  </article>
+  <aside id="prescrp">
+    <h2>title5</h2>
+    <p>this is title 5</p>
+  </aside>
+</section>
+<!--patient end-->
+<!--end of second page-->
+<section class="faq">
+  <h1>FAQ</h1>
+  <p>this is faq</p>
+</section>
+<!--social link-->
+<footer id="first">
+  <div id="first-footer">
+    <h4>Reach Us</h4>
+  <ul class="social">
+  <li><i class="fa fa-facebook"></i></li>
+  <li><i class="fa fa-google-plus"></i></li>
+  <li><i class="fa fa-twitter"></i></li>
+  <!--<li>yt</li>-->
+  <li style="padding-right:0"><i class="fa fa-instagram"></i></li>
+  </ul>
+</div>
+</footer>
+<footer id="second">
+    <p>&copy;WebClinicTech2018</p>
+</footer>
+
+<!--sticky header-->
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+</body>
+</html>
