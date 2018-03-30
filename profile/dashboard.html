@@ -21,11 +21,12 @@
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
-    <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/check.css">
-    <link rel="stylesheet" href="assets\fonts\font-awesome-4.7.0\css\font-awesome.min.css">
+    <!--<link rel="stylesheet" href="assets\fonts\font-awesome-4.7.0\css\font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
 </head>
 <body>
@@ -137,7 +138,7 @@
                                         <div class="wrap-input100">
                                             <input placeholder="medicine name e.g Aspirin" name="searchmed" class="input100" required>
                                             <span class="symbol-input100">
-                                                <i class="fa fa-file" aria-hidden="true"></i>
+                                                <i class="fa fa-prescription-bottle-alt" aria-hidden="true"></i>
                                             </span>
                                         </div>
                                         <button type="button" class="check-form-btn" id="search" float="right" style="width:100%;float:right">Search</button>
@@ -169,16 +170,82 @@
                                         <div class="wrap-input100">
                                             <input placeholder="Location" name="remloc" class="input100" required>
                                             <span class="symbol-input100">
-                                                <i class="fa fa-file" aria-hidden="true"></i>
+                                                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <!--<div class="wrap-input100">-->
+                                            <label class="login100-form-title" style="font-size:16px;padding-bottom:2px">Start</label>
+                                        <!--</div>-->
+                                        <div class="wrap-input100">
+                                            <input type="date" value="01/01/2010" class="input100">
+                                            <span class="symbol-input100">
+                                                <i class="fas fa-calendar-check"></i>
                                             </span>
                                         </div>
                                         <div class="wrap-input100">
+                                            <input type="time" value="12:00AM" class="input100">
+                                            <span class="symbol-input100">
+                                                <i class="fas fa-clock"></i>
+                                            </span>
+                                        </div>
+                                        <!--==============-->
+                                        <!--<div class="wrap-input100">-->
+                                            <label class="login100-form-title" style="font-size:16px;padding-bottom:2px">End</label>
+                                        <!--</div>-->
+                                        <div class="wrap-input100">
                                             <input type="date" value="01/01/2010" class="input100">
+                                            <span class="symbol-input100">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </span>
                                         </div>
                                         <div class="wrap-input100">
                                             <input type="time" value="12:00AM" class="input100">
+                                            <span class="symbol-input100">
+                                                <i class="fas fa-clock"></i>
+                                            </span>
                                         </div>
-                                        <button type="button" class="check-form-btn" id="search" float="right" style="width:100%;float:right">Search</button>
+                                        <div class="wrap-input100">
+                                            <input placeholder="Description" name="description" class="input100" required >
+                                            <span class="symbol-input100">
+                                                <i class="fas fa-book"></i>
+                                            </span>
+                                        </div>
+                                        <label class="login100-form-title" style="font-size:16px;padding-bottom:2px">Reminder</label>
+                                        <div class="wrap-input100">
+                                            <a href="../index.html"><button type="button" class="input100" id="search" float="right">Add new reminder</button></a>
+                                            <span class="symbol-input100">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                        <div class="remset">
+                                            <div class="wrap-input100">
+                                                <select class="input100" style="width:200px;display:inline-block">
+                                                    <option value="on time">On time</option>
+                                                    <option value="1 min">1 min before</option>
+                                                    <option value="5 min">5 min before</option>
+                                                    <option value="10 min">10 min before</option>
+                                                    <option value="15 min">15 min before</option>
+                                                    <option value="20 min">20 min before</option>
+                                                    <option value="25 min">25 min before</option>
+                                                    <option value="30 min">30 min before</option>
+                                                    <option value="45 min">45 min before</option>
+                                                    <option value="1 hour">1 hours before</option>
+                                                    <option value="2 hours">2 hours before</option>
+                                                    <option value="3 hours">3 hours before</option>
+                                                    <option value="12 hours">12 hours before</option>
+                                                    <option value="1 day">1 day before</option>
+                                                    <option value="2 days">2 days before</option>
+                                                    <option value="1 week">1 week before</option>
+                                                </select>
+                                                <p style="display:inline-block">event</p>
+                                                <i class="fa fa-remove" style="display:inline-block"></i>
+                                                <span class="symbol-input100">
+                                                    <i class="fas fa-bell"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--============-->
+                                        <button type="button" class="check-form-btn" id="search" float="right" style="width:100%;float:right">Save</button>
                                     </form>
                                 </div>
                             </div>
