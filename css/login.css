@@ -6,7 +6,7 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: ;
+  font-family:Poppins-Regular ;
   src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
@@ -31,7 +31,7 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body, html {
@@ -119,14 +119,25 @@ max-width: 1200px;
 margin: 0 auto;
 font-family: Poppins-Medium;
 }
-#logo{
-  margin:12px;
+#logoim{
+  margin-left:12px;
+  margin-right:12px;
+  margin-bottom: 12px;
+  margin-top: 12px;
   width: 210px;
   height:65px;
   float:left;
   display: block;
 }
-
+@media screen and (max-width:550px){
+  #logoim{
+    margin:17px;
+    width: 150px;
+    height:50px;
+    float:left;
+    display: block;
+  }
+}
 nav{
   float: right;
   padding: 35px 40px 0 0;
@@ -279,8 +290,176 @@ nav ul li a:hover{
   pointer-events: none;
   color: #666666;
 }
+.about-body{
+  width:100%;
+  float: left;
+}
+.about-body .container{
+  padding-top:20px;
+  padding-bottom:150px;
+}
+.img-prof{
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+}
+.col-sm-4{
+  text-align: center;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-team{
+  text-align: center;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
+.box-img {
+  position: relative;
+  width: 50%;
+}
+.overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  width: 250px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(35, 41, 43);
+  border-radius:125px;
+  /*padding-left: 40%;*/
+}
+.box-img:hover .overlay {
+  opacity:0.8;
+}
+.details {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+@media (max-width: 992px) {
+  .img-prof {
+    width:180px;
+    height: 180px;
+    border-radius: 90px;
+  }
+  .col-sm-4 h3{
+    font-size: 120%;
+  }
+  .box-img {
+    position: relative;
+    width: 50%;
+  }
+  .overlay{
+    height: 180px;
+    width: 180px;
+    border-radius:90px;
+  }
+  .details {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .about-body .container{
+    padding-top:100px;
+    padding-bottom:150px;
+  }
+    .img-prof {
+      width:150px;
+      height: 150px;
+      border-radius: 75px;
+    }
+    .col-sm-4 h3{
+      font-size: 120%;
+    }
+    .box-img {
+      position: relative;
+      width: 35%;
+    }
+    .overlay{
+      height: 150px;
+      width: 150px;
+      border-radius:75px;
+    }
+    .details {
+      font-size: 13px;
+      text-align: center;
+    }
+  }
 
-
+}
+/*...................about.............*/
+.about-banner{
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.about-banner img{
+  width: 75%;
+  max-height: 600px;
+}
+.about-content{
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+}
+.img-text-about{
+  text-align: center;
+  color:#3d3c3c;
+  padding-top:10px; 
+  font-size:200%;
+  font-weight:550;
+}
+@media (max-width: 768px) {
+  .about-banner img {
+    padding-top: 100px;
+  }
+}
+/*-----------forget.................*/
+.forget-body{
+  width: 100%;
+  height: 80%;
+  min-height:500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10%;
+}
+@media (max-width: 768px) {
+  .forget-body {
+    /*height: 100%;*/
+    padding-top: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/*-------------------dev------------------------*/
+.dev-strip{
+  text-align: center;
+}
+.dev-strip h5 a{
+  color: #3e4641;
+  font-size: 100%;
+  font-weight: 600;
+}
+.dev-strip h5 a:hover{
+  color: #0d8d3c;
+  font-size: 105%;
+}
+.about-body1{
+  height: 280px;
+  width: 100%;
+}
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -340,11 +519,11 @@ padding-top: 1%;
 }
 .social li{
   display: inline-block;
-  padding-left: : 2%;
+  padding-left: 2%;
   padding-right: 2%;
 }
 .social i{
-  font-size: 300%;
+  font-size: 200%;
   margin: 1%;
   padding: 8% 8% 8% 8%;
   color: #68737B;
@@ -360,10 +539,10 @@ padding-top: 1%;
   padding-bottom: 0.5%;
 }
 #second p{
-  font-size: 110%;
+  font-size: 100%;
   font-family: Poppins-Medium;
   width: 100%;
-  color: #C6BAC8;
+  color: rgb(164, 155, 165);
   align-items:  center;
   display: flex;
   justify-content: center;
@@ -482,6 +661,7 @@ padding-top: 1%;
 @media screen and (max-width:768px){
   header{
     position: absolute;
+    height: 80px;
   }
   #menu-icon{
     display: inline-block;
@@ -505,6 +685,7 @@ padding-top: 1%;
   }
   nav li:hover{
     background-color: rgb(105, 89, 105);
+    color:whitesmoke;
   }
   nav ul li a{
     color: rgb(105, 89, 105);

@@ -20,9 +20,9 @@
 	    <a href="#" id="menu-icon" ></a>
 	    <ul>
 	      <li><a href="index.html">Home</a></li>
-	      <li><a href="">About</a></li>
+	      <li><a href="about.html">About</a></li>
 	      <li><a href="login.html">Login</a></li>
-	      <li><a href="">Contact</a></li>
+	      <li><a href="contact.html">Contact</a></li>
 	    </ul>
 	  </nav>
 	</div>
@@ -37,7 +37,12 @@
         <span class="login100-form-title">
           SIGNUP | <h5>Doctor</h5>
         </span>
-
+        <div class="wrap-input100 validate-input" data-validate = "Name is required" ><!--form validation message-->
+          <input class="input100" type="text" name="name" placeholder="Name" autofocus>
+          <span class="symbol-input100">
+            <i class="fa fa-id-badge" aria-hidden="true"></i>
+          </span>
+        </div>
         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz" ><!--form validation message-->
           <input class="input100" type="text" name="email" placeholder="Email" autofocus>
           <span class="symbol-input100">
@@ -90,7 +95,7 @@
     <p>&copy;WebClinicTech2018</p>
 </footer>
 <!--validating form-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/main.js"></script>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,603 @@
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: ;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px;
+	padding: 0px;
+  box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login100 {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap-login100 {
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 130px 33px 95px;
+}
+.wrap-login101 {
+  max-width: 960px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 100px 100px 33px 120px;
+  overflow: hidden;
+}
+
+/*------------------------------------------------------------------
+[  ]*/
+.login100-pic {
+  padding-top: 3%;
+  width: 316px;
+}
+
+.login100-pic img {
+  max-width: 100%;
+}
+
+.login100-pic1 {
+  padding-top: 3%;
+  width: 316px;
+}
+
+.login100-pic1 img {
+  max-width: 100%;
+}
+/*------------------------------------------------------------------
+[  ]*/
+.login100-form {
+  width: 290px;
+}
+
+.login100-form-title {
+  font-family: Poppins-Bold;
+  font-size: 24px;
+  color: #A195A1;
+  line-height: 1.2;
+  text-align: center;
+
+  width: 100%;
+  display: block;
+  padding-bottom: 20px;
+}
+.form-body{
+  min-height: 200px;
+}
+
+.rad input{
+  position: absolute;
+  visibility: hidden;
+}
+.rad>input+i{
+  cursor: pointer;
+}
+.rad>input:checked+i{
+  color :purple;
+}
+.rad>i:hover{
+  color: purple;
+}
+.gendericon{
+  font-size: 40px;
+  padding-right:5px;
+}
+.wrap-content{
+  padding-left: 10px; 
+  padding-bottom: 10px;
+}
+.check-form-btn {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  height: 50px;
+  border-radius: 25px;
+  width: 120px;
+  background: #30AE4D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+}
+/*---------------------------------------------*/
+.wrap-input100 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.input100 {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
+
+
+.symbol-input100 {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 35px;
+  pointer-events: none;
+  color: #666666;
+}
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login100-form-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.login100-form-btn {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #30AE4D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.login100-form-btn:hover {
+  background: #333333;
+}
+.text-center{
+  margin-top: 3%;
+  text-align: center;
+}
+/*footer*/
+/*#first{
+  float: left;
+  width: 100%;
+  background: #632873;
+}
+#first-footer{
+width: 100%;
+padding-top: 1%;
+}
+#first-footer h4{
+  text-align: center;
+  font-size: 130%;
+  color: #68737B;
+}
+.social{
+  width: 100%;
+  align-items:  center;
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+}
+.social li{
+  display: inline-block;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.social i{
+  font-size: 200%;
+  margin: 1%;
+  padding: 8% 8% 8% 8%;
+  color: #68737B;
+}
+.social i:hover{
+  color:#B2ADB3;
+}
+#second {
+  float: left;
+  background: #6F2F73;
+  width: 100%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+#second p{
+  font-size: 100%;
+  font-family: Poppins-Medium;
+  width: 100%;
+  color: rgb(164, 155, 165);
+  align-items:  center;
+  display: flex;
+  justify-content: center;
+}
+
+.check{
+  font-family: poppins-Medium;
+  color: rgb(135, 140, 145);
+  font-size: 110%;
+  margin-bottom:2px; 
+  text-align: center;
+}*/
+.footer{
+  padding-left:45px;
+}
+/*=====================patient==================*/
+.patientcard{
+  min-height:300px;
+  width: 90%;
+  border: 1px solid;
+  border-color: #666666;
+  padding: 10px;
+  box-shadow: 2px 2px 1px 1px #666666;
+  margin-left: 35px;
+  margin-top: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#card2,#card3{
+  width: 45%;
+}
+.cardhead{
+  float: left;
+  padding-left:10px;
+  font-weight: 600; 
+}
+.patientcard-pic{
+  width: 95%;
+  padding-top: 40px;
+  padding-left:30px;
+  padding-right: 30px;
+}
+.patientcard-pic1{
+  width: 55%;
+  height: auto;
+  padding-top:70px;
+  padding-left:10%;
+  padding-right: 10%;
+}
+/*============validate-form===================*/
+.validate-input {
+  position: relative;
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: white;
+  border: 1px solid #c80000;
+  border-radius: 13px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 8px;
+  pointer-events: none;
+
+  font-family: Poppins-Medium;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.alert-validate::after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 13px;
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 1290px) {
+  .wrap-login101{
+    padding: 100px 75px 33px 75px;
+  }
+}
+@media (max-width: 1200px) {
+  .wrap-login101{
+    padding: 100px 50px 33px 50px;
+  }
+  .wrap-login100{
+    padding: 100px 50px 33px 50px;
+  }
+  .login100-pic1{
+    width: 40%;
+  }
+}
+@media (max-width: 1130px) {
+  .wrap-login101{
+    padding: 100px 35px 33px 35px;
+  }
+}
+@media (max-width: 1080px) {
+  .wrap-login101{
+    padding: 100px 30px 33px 30px;
+  }
+  .login100-pic1{
+    width: 40%;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .wrap-login100 {
+    padding: 177px 90px 33px 85px;
+  }
+
+  .login100-pic {
+    width: 45%;
+  }
+  .login100-pic1 {
+    width: 50%;
+    padding-left:10%;
+    padding-right: 10%;
+  }
+  .login100-form {
+    width: 50%;
+  }
+  .wrap-login101{
+    padding: 100px 20px 33px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login100 {
+    padding: 100px 80px 33px 80px;
+  }
+  .wrap-login101{
+    padding: 50px 20px 33px;
+  }
+  .login100-pic {
+    position: relative;
+    margin-left: 27%;
+  }
+  .login100-pic1 {
+    position: relative;
+    margin-left: 27%;
+  }
+  .login100-form {
+    width: 98%;
+  }
+  .patientcard-pic{
+    width: 80%;
+    min-width: 350px;
+    margin-right: 30px;
+    padding-left: 60px;
+    padding-right: 0;
+    padding-top:20px;
+  }
+  .footer{
+    padding-left: 40px;
+    padding-right: 60px;
+  }
+  .patientcard-pic1{
+    width: 45%;
+    min-width: 220px;
+    height: auto;
+    padding-top:50px;
+    padding-left:70px;
+    padding-right: 0;
+    margin-left: 30px;
+  }
+}
+@media (max-width: 612px) {
+  .patientcard-pic1{
+    margin-left: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding: 100px 15px 33px 15px;
+  }
+  .wrap-login101{
+    padding: 100px 15px 33px;
+  }
+  .patientcard-pic{
+    width: 90%;
+    min-width: 100px;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-right: 50px;
+  }
+  .patientcard-pic1{
+    width: 50%;
+    height: auto;
+    min-width: 0;
+    padding-top: 60px;
+    padding-left: 35px;
+    margin-right: 40px;
+  }
+  .footer{
+    padding-left: 50px;
+  }
+  .login100-pic1 {
+    width: 50%;
+    padding-left:20px;
+    padding-right: 10%;
+    min-width: 130px;
+  }
+}
+
+
+/*======media query=====*/
+@media screen and (max-width:768px){
+  header{
+    position: absolute;
+    height: 80px;
+  }
+  #menu-icon{
+    display: inline-block;
+  }
+  nav ul, nav:active ul{
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    background: rgb(223, 201, 230);
+    right:20px;
+    top: 60px;
+    width: 30%;
+  }
+  nav:hover ul{
+    display: block;
+  }
+  nav li{
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+  nav li:hover{
+    background-color: rgb(105, 89, 105);
+    color:whitesmoke;
+  }
+  nav ul li a{
+    color: rgb(105, 89, 105);
+    font-weight: normal;
+  }
+  nav ul li a:hover{
+    color:whitesmoke;
+    padding: 0;
+    background-color: rgb(105, 89, 105);
+  }
+  .patientcard{
+    max-width:650px;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+  #card2,#card3{
+    width: 90%;
+  }
+}
