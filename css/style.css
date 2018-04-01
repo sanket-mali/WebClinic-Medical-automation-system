@@ -295,7 +295,8 @@ article i{
   width: 100%;
   height: auto;
   max-width: 1000px;
-  padding: 25px;
+  padding: 10%;
+  padding-top: 15%;
   padding-left: 15%;
 }
 .index-pat-text{
@@ -436,6 +437,12 @@ padding-top: 1%;
   aside p{
     font-size: 100%;
   }
+  article h2{
+    font-size: 140%;
+  }
+  article p{
+    font-size: 100%;
+  }
 }
 @media screen and (max-width:550px){
   #menu-icon{
@@ -446,6 +453,12 @@ padding-top: 1%;
     font-size: 120%;
   }
   aside p{
+    font-size: 80%;
+  }
+  article h2{
+    font-size: 120%;
+  }
+  article p{
     font-size: 80%;
   }
 }
