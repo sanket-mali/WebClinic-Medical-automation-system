@@ -186,6 +186,7 @@ width: 100%;
   float: left;
   height: 100%;
   max-height: 250px;
+  background-color: #DDDDDD;
 }
 .one-fifth{
   width: 20%;
@@ -201,40 +202,48 @@ width: 100%;
   max-height: 40px;
 }
 .pat-card{
-  padding:10px;
+  padding:2px;
   max-width: 140px;
-  width: 50%;
+  width: 90%;
   height: auto;
+  padding-bottom: 0;
 }
 .pat-card-text{
   font-family: Poppins-Medium;
   font-size: 100%;
-  padding: 5%;
+  padding-top:0; 
 }
-
+.patient-body{
+  width: 100%;
+  float: left;
+  padding-top: 2px;
+  background-color: purple;
+  border-top:2px solid purple;
+}
 /*#prof{
-
+  border-right: 2px solid rgb(100, 65, 100);
 }
 #doc{
-
+  border-right: 2px solid rgb(100, 65, 100);
 }
 #med{
-
 }
 #symp{
-
+  border-right: 2px solid rgb(100, 65, 100);
 }
 #rem{
-
+  border-right: 2px solid rgb(100, 65, 100);
 }*/
 
 
 .left-wrapper{
+  padding-top: 2%;
   float: left;
   width: 100%;
-  background-color: #E8E6C7;
+  background-color: rgb(255, 255, 255);
 }
 .right-wrapper{
+  padding-top: 2%;
   float: left;
   width: 100%;
   background-color: #C7D7E8;
@@ -374,10 +383,10 @@ padding-top: 1%;
     width: 100%;
     }
 }
-@media screen and (max-width:680px){
+@media screen and (max-width:768px){
   .pat-card-text{
-    font-size: 80%;
-    padding: 3%;
+    font-size: 90%;
+    padding-bottom: 2px;
   }
 }
 @media screen and (max-width:550px){
