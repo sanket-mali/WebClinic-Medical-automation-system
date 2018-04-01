@@ -42,8 +42,6 @@ h3{
 }
 p{
   font-size: 160%;
-  padding:3%;
-  text-indent: 2%;
 }
 img{
   max-width: 100%;
@@ -52,19 +50,20 @@ img{
   margin-bottom:-4px;
   padding-bottom: 20%;
 }
-header{
-  background-color:#FFFFFF;
+
+/*======================*/
+.myHeader{
+  background-color:rgb(253, 252, 252);
   width: 100%;
   height: 80px;
 }
 #header-content{
-max-width: 1200px;
+  max-width: 1200px;
 margin: 0 auto;
 font-family: Poppins-Medium;
 background-color: #fff;
 float: left;
-width: 95%;
-padding-left: 5%;
+width: 100%;
 height: 80px;
 }
 #logo{
@@ -78,9 +77,8 @@ height: 80px;
 }
 
 nav{
-  padding: 35px 40px 0 0;
+  padding: 35px 30px 0 0;
   float: right;
-  
 }
 #menu-icon{
   display:hidden;
@@ -98,8 +96,6 @@ ul{
 nav ul li{
   font-size: 120%;
   float: left;
-  padding-left:10px;
-  padding-right:10px;
 }
 nav ul li a{
   color:#354452;
@@ -184,7 +180,7 @@ width: 100%;
 .pat-feat-card{
   width: 100%;
   float: left;
-  height: 100%;
+  height: auto;
   max-height: 250px;
   background-color: #DDDDDD;
 }
@@ -237,9 +233,9 @@ width: 100%;
 
 
 .left-wrapper{
-  padding-top: 2%;
   float: left;
   width: 100%;
+  max-height: 500px;
   background-color: rgb(255, 255, 255);
 }
 .right-wrapper{
@@ -249,17 +245,64 @@ width: 100%;
   background-color: #C7D7E8;
 }
 article{
-  float: left;;
+  float: left;
   margin: 0 auto;
   width: 50%;
   height: auto;
+  max-height: 500px;
 }
 aside{
   float: right;
   margin: 0 auto;
   width: 50%;
   height: auto;
+  max-height: 500px;
+  padding-top: 20px;
 }
+aside h2{
+  font-size: 180%;
+  padding-bottom: 0;
+  text-align: center;
+}
+aside p{
+  font-size: 120%;
+  padding-top: 0;
+  text-align: center;
+  font-family: Poppins-Regular;
+  text-align: left;
+  display: inline;
+}
+aside i{
+  color: purple;
+}
+article h2{
+  font-size: 180%;
+  padding-bottom: 0;
+  text-align: center;
+}
+article p{
+  font-size: 120%;
+  padding-top: 0;
+  text-align: center;
+  font-family: Poppins-Regular;
+  text-align: left;
+  display: inline;
+}
+article i{
+  color: purple;
+}
+.index-pat-card{
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  padding: 25px;
+  padding-left: 15%;
+}
+.index-pat-text{
+  padding: 25px;
+  padding-left: 15%;
+}
+/*==============================================*/
 .faq{
   width:100%;
   float: left;
@@ -287,7 +330,8 @@ padding-top: 1%;
 }
 #first-footer h4{
   text-align: center;
-  font-size: 150%;
+  font-size: 130%;
+  color: #68737B;
 }
 .social{
   width: 100%;
@@ -295,17 +339,18 @@ padding-top: 1%;
   display: flex;
   justify-content: center;
   padding-top: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 0.5%;
 }
 .social li{
   display: inline-block;
-  padding-left:  3%;
-  padding-right: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 .social i{
-  font-size: 300%;
+  font-size: 200%;
   margin: 1%;
   padding: 8% 8% 8% 8%;
+  color: #68737B;
 }
 .social i:hover{
   color:#B2ADB3;
@@ -318,9 +363,10 @@ padding-top: 1%;
   padding-bottom: 0.5%;
 }
 #second p{
-  font-size: 110%;
+  font-size: 100%;
+  font-family: Poppins-Medium;
   width: 100%;
-  color: #C6BAC8;
+  color: rgb(164, 155, 165);
   align-items:  center;
   display: flex;
   justify-content: center;
@@ -335,17 +381,17 @@ padding-top: 1%;
 @media screen and (max-width:768px){
   header{
     position: absolute;
+    height: 80px;
   }
   #menu-icon{
     display: inline-block;
-    padding-bottom:35%; 
   }
   nav ul, nav:active ul{
     display: none;
     z-index: 1000;
     position: absolute;
     background: rgb(223, 201, 230);
-    right:20px;
+    right:40px;
     top: 60px;
     width: 30%;
   }
@@ -355,21 +401,16 @@ padding-top: 1%;
   nav li{
     text-align: center;
     width: 100%;
-    padding: 10px 0;
+    padding-top: 10px;
   }
   nav li:hover{
     background-color: rgb(105, 89, 105);
-  }
-  nav ul li a{
-    color: rgb(105, 89, 105);
-    font-weight: normal;
   }
   nav ul li a:hover{
     color:whitesmoke;
     padding: 0;
     background-color: rgb(105, 89, 105);
   }
-
   #logo{
     margin:7px;
     width: 150px;
@@ -381,6 +422,7 @@ padding-top: 1%;
     padding-bottom: 0;
     height: auto;
     width: 100%;
+    float: left;
     }
 }
 @media screen and (max-width:768px){
@@ -388,10 +430,22 @@ padding-top: 1%;
     font-size: 90%;
     padding-bottom: 2px;
   }
+  aside h2{
+    font-size: 140%;
+  }
+  aside p{
+    font-size: 100%;
+  }
 }
 @media screen and (max-width:550px){
   #menu-icon{
     width:25px;
     height:25px;
+  }
+  aside h2{
+    font-size: 120%;
+  }
+  aside p{
+    font-size: 80%;
   }
 }

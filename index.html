@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<header id="myHeader">
+<div class="myHeader">
 <div id="header-content">
   <a href="index.html" id ="logo"><img src="img/header-logo.png" id="logoim"></a>
   <nav>
@@ -24,10 +24,10 @@
     </ul>
   </nav>
 </div>
-</header>
-<section id="first-page">
+</div>
+<div id="first-page">
     <img src="img/first.jpg" style="display:block" id=web-banner>
-</section>
+</div>
 <div class="pat-banner">
   <div id="patient-banner">
   <p>For patients</p>
@@ -62,39 +62,59 @@
 <!--how to-->
 <div class="patient-body">
   <div class="left-wrapper">
-    <article id="register">
-      <img src="img/profilebuild.png">
+    <article id="profbuild">
+      <img src="img/profbuild.png" class="index-pat-card">
     </article>
-    <aside id="register">
-      <h2>title1</h2>
-      <p>this is title 1</p>
+    <aside id="profbuild">
+      <h2>Manage profile</h2>
+      <p>Register for a patient account</p><br>
+      <i class="fa fa-check"></i><p>Access all the services</p><br>
+      <i class="fa fa-check"></i><p>Add personal details</p><br>
+      <i class="fa fa-check"></i><p>Track treatment progress</p>
     </aside>
   </div>
   <div class="right-wrapper">
-    <article id="profile">
-      <h2>title2</h2>
-      <p>this is title 2</p>
+    <article id="searchdoc" class="index-pat-text">
+      <h2>Search doctor</h2>
+      <i class="fa fa-check"></i><p>Search doctor near your location</p><br>
+      <i class="fa fa-check"></i><p>Find the right doctor</p><br>
+      <i class="fa fa-check"></i><p>Get appointment</p><br>
     </article>
-    <aside id="profile">
-    <img src="img/dctr-profile.png">
+    <aside id="searchdoc">
+    <img src="#" class="index-pat-card">
     </aside>
   </div>
   <div class="left-wrapper">
-    <article id="history">
-      <img src="img/dctr-profile.png">
+    <article id="checksymp">
+      <img src="#" class="index-pat-card">
     </article>
-    <aside id="history">
-      <h2>title3</h2>
-      <p>this is title 3</p>
+    <aside id="checksymp">
+      <h2>Check symptoms</h2>
+      <i class="fa fa-check"></i><p>Identify common health problems</p><br>
+      <i class="fa fa-check"></i><p>Quick suggestion</p><br>
+      <i class="fa fa-check"></i><p>Smart symptom checker</p>
     </aside>
   </div>
   <div class="right-wrapper">
-    <article id="prescription">
-      <h2>title4</h2>
-      <p>this is title 4</p>
+    <article id="prescription" class="index-pat-text">
+      <h2>Set reminder</h2>
+      <i class="fa fa-check"></i><p>Set reminder for medication</p><br>
+      <i class="fa fa-check"></i><p>Multiple reminder</p><br>
+      <i class="fa fa-check"></i><p>Custom Notification</p><br>
     </article>
     <aside id="prescription">
-    <img src="img/dctr-profile.png">
+    <img src="#" class="index-pat-card">
+    </aside>
+  </div>
+  <div class="left-wrapper">
+    <article id="readmed">
+      <img src="#" class="index-pat-card">
+    </article>
+    <aside id="checksymp">
+      <h2>Read about medicines</h2>
+      <i class="fa fa-check"></i><p>Medicine composition</p><br>
+      <i class="fa fa-check"></i><p>Generic name</p><br>
+      <i class="fa fa-check"></i><p>Other details</p>
     </aside>
   </div>
 </div>
