@@ -52,13 +52,12 @@ img{
 }
 
 /*======================*/
-.myHeader{
+#myHeader{
   background-color:rgb(253, 252, 252);
   width: 100%;
   height: 80px;
 }
 #header-content{
-  max-width: 1200px;
 margin: 0 auto;
 font-family: Poppins-Medium;
 background-color: #fff;
