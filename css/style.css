@@ -343,6 +343,7 @@ article i{
   max-height: 500px;
   background-color: #C7D7E8;
   float: left;
+  padding-top: 0;
 }
 .mob{
   text-align: center;
@@ -351,7 +352,7 @@ article i{
   align-items: center;
 }
 .mob h3{
-  padding-top:2%;
+  padding-top:0;
   font-size: 180%;
 }
 .features{
