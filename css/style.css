@@ -315,7 +315,7 @@ article i{
   height: auto;
   max-width: 400px;
   padding: 10%;
-  padding-top: 17%;
+  padding-top: 10%;
   padding-left: 15%;
   float: left;
 }
@@ -343,59 +343,23 @@ article i{
   max-height: 500px;
   background-color: #C7D7E8;
   float: left;
-  padding-top:20px;
 }
-.left-half{
-  width: 45%;
-  float: left;
-}
-.left-half h2{
-  font-size:150%;
-}
-.right-half{
-  width:55%;
-  float: right;
-  padding-left: 10%;
-}
-.upper{
-  width:100%;
-  height:50%;
-  /*padding-left: 10%;*/
-}
-.upper img{
-  width:55%;
-  height: auto;
-  padding-bottom: 0;
-}
-.round-img{
-  width: 130px;
-  height: 130px;
-  border-radius: 100px;
-  background-color: rgb(255, 255, 255);
+.mob{
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#upleft{
-  float: left;
-  margin-right: 5%;
+.mob h3{
+  padding-top:2%;
+  font-size: 180%;
 }
-#upright{
-}
-#dnleft{
-  float: left;
-  margin-right: 5%;
-}
-#dnright{
-}
-.lower{
-  width: 100%;
-  height:50%;
-}
-.lower img{
-  width:55%;
-  height: auto;
-  padding-bottom: 0;
+.features{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25%;
+  padding-bottom: 2%;
 }
 /*==============================================*/
 .faq{
@@ -525,6 +489,9 @@ padding-top: 1%;
     font-size: 90%;
     padding-bottom: 2px;
   }
+  .mob h3{
+    font-size: 160%;
+  }
   .index-pat-card2{
     width: 200px;
   }
@@ -560,6 +527,9 @@ padding-top: 1%;
   article i{
     padding-left: 9%;
   }
+  .mob h3{
+    font-size:140%;
+  }
 }
 @media screen and (max-width:555px){
   #menu-icon{
@@ -583,5 +553,8 @@ padding-top: 1%;
   }
   article i{
     padding-left: 7%;
+  }
+  .mob h3{
+    font-size: 120%;
   }
 }
