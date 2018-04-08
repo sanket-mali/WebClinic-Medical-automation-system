@@ -51,7 +51,7 @@
 				<li>
                     <a href="user.html">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>Manage Profile</p>
                     </a>
                 </li>
                 <li>
@@ -118,6 +118,61 @@
                     <div class="col-sm-10 patientcard" onclick="myFunction1()" id="card1">
                         <p class="cardhead">Profile</p>
                         <a href="dashboard.html"><img src="assets/img/cross.png" id="cross1" style="float:right;padding-right:40px;font-size:20px;visibility:hidden"></a>
+                        <div id="treatment" class="cardbody" style="display:none">
+                            <div class="card">
+                                <div class="content">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label >Name</label>
+                                                    <!--Load from database-->
+                                                    <input type="text" class="form-control" placeholder="Name" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Age</label>
+                                                        <input type="text" class="form-control" placeholder="Age" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Gender</label>
+                                                        <input type="text" class="form-control" placeholder="Gender" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Blood group</label>
+                                                        <input type="text" class="form-control" placeholder="Blood group" readonly>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control" placeholder="Home Address" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Doctor</label>
+                                                    <input type="text" class="form-control" placeholder="Doctor" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn1 pull-right">See prescription</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row row1">
@@ -144,7 +199,7 @@
                                         <button type="button" class="check-form-btn" id="search" float="right" style="width:100%;float:right">Search</button>
                                     </form>
                                 </div>
-                            </div>
+                        </div>
                             <!--============-->
                     </div>
                     <div class="col-sm-5 patientcard" margin-left="0" onclick="myFunction3()" id="card3">
@@ -274,11 +329,12 @@
 </body>
     <script>
     function myFunction1() {
-        document.getElementById("card1").style.height="500px";
+        document.getElementById("card1").style.height="700px";
         document.getElementById("card1").style.width="95%";
         document.getElementById("card2").style.display="none";
         document.getElementById("card3").style.display="none";
         document.getElementById("cross1").style.visibility="visible";
+        document.getElementById("treatment").style.display="block";
     }
     function myFunction2() {
         document.getElementById("card2").style.height="500px";
