@@ -114,52 +114,54 @@ nav ul li a:hover{
 
 #first-page img{
 padding-bottom: 0;
-height: 660px;
+height: auto;
 width: 100%;
 }
 #first-page{
   float:left;
 }
 
+/*======================*/
 
-
-/*.dct-banner{
-  float: left;
-  width: 100%;
+.slide{
+  display: none;
 }
-#doctor-banner{
-  background-color: rgb(63, 168, 63);
-  height: 35px;
-  padding-top: 6px;
-  padding-bottom: 2px;
-}
-#doctor-banner p{
-  font-size: 20px;
+/*.caption{
   text-align: center;
-  padding: 0;
-  color: rgb(240, 243, 245);
-}
-.one-fourth{
-  width: 25%;
-  float: left;
-  text-align: center;
-}
-.one-fourth img{
+  position: absolute;
   width: 100%;
+  padding: 8px 16px;
+  bottom: 8px;
+  color: gray;
+  background-color: white;
 }
-#reg{
-
+.prev, .next{
+  position: absolute;
+  color: black;
+  top:50%;
+  padding:30px 10px;
+  background-color: white;
+  opacity: 0.3;
 }
-#prof{
-
+.prev:hover, .next:hover{
+  background-color: white;
+  opacity: 0.6;
+  cursor: pointer;
 }
-#rec{
-
+.next{
+  right:0;
 }
-#pres{
-
+.slider{
+  position: absolute;
+}
+.dots{
+  width: 15px;
+  height: 15px;
+  background-color: wheat;
+  display: inline-block;
+  padding-bottom: 15px;
 }*/
-
+/*======================*/
 .pat-banner{
   float: left;
   width: 100%;
@@ -206,7 +208,7 @@ width: 100%;
 .pat-card-text{
   font-family: Poppins-Medium;
   font-size: 100%;
-  padding-top:0; 
+  padding-top:0;
 }
 .patient-body{
   width: 100%;
@@ -215,20 +217,7 @@ width: 100%;
   background-color: purple;
   border-top:2px solid purple;
 }
-/*#prof{
-  border-right: 2px solid rgb(100, 65, 100);
-}
-#doc{
-  border-right: 2px solid rgb(100, 65, 100);
-}
-#med{
-}
-#symp{
-  border-right: 2px solid rgb(100, 65, 100);
-}
-#rem{
-  border-right: 2px solid rgb(100, 65, 100);
-}*/
+
 
 
 .left-wrapper{
@@ -241,7 +230,7 @@ width: 100%;
   float: right;
   width: 100%;
   max-height: 500px;
-  background-color: #C7D7E8;
+  background-color: rgb(225, 230, 236);
 }
 .left-wrapper article{
   float: left;
@@ -266,7 +255,7 @@ width: 100%;
   width: 65%;
   height: auto;
   max-height: 500px;
-  padding-top:20px; 
+  padding-top:20px;
 }
 .right-wrapper aside{
   float: right;
@@ -482,7 +471,6 @@ padding-top: 1%;
     padding-bottom: 0;
     height: auto;
     width: 100%;
-    float: left;
     }
 }
 @media screen and (max-width:768px){

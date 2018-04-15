@@ -6,7 +6,7 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: ;
+  font-family:Poppins-Regular ;
   src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
@@ -172,11 +172,11 @@ iframe {
   padding-right:5px;
 }
 .wrap-content{
-  padding-left: 10px; 
+  padding-left: 10px;
   padding-bottom: 10px;
 }
 .check-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: Poppins-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -228,7 +228,8 @@ iframe {
 }
 .cardbody{
   width: 100%;
-  height: 100%;
+  height: auto;
+  padding: 0px;
   padding-top:50px;
 }
 /*------------------------------------------------------------------
@@ -242,7 +243,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: Poppins-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -265,103 +266,287 @@ iframe {
   margin-top: 3%;
   text-align: center;
 }
-/*footer*/
-/*#first{
-  float: left;
-  width: 100%;
-  background: #632873;
-}
-#first-footer{
-width: 100%;
-padding-top: 1%;
-}
-#first-footer h4{
-  text-align: center;
-  font-size: 130%;
-  color: #68737B;
-}
-.social{
-  width: 100%;
-  align-items:  center;
-  display: flex;
-  justify-content: center;
-  padding-top: 1%;
-  padding-bottom: 0.5%;
-}
-.social li{
-  display: inline-block;
-  padding-left: 2%;
-  padding-right: 2%;
-}
-.social i{
-  font-size: 200%;
-  margin: 1%;
-  padding: 8% 8% 8% 8%;
-  color: #68737B;
-}
-.social i:hover{
-  color:#B2ADB3;
-}
-#second {
-  float: left;
-  background: #6F2F73;
-  width: 100%;
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
-}
-#second p{
-  font-size: 100%;
-  font-family: Poppins-Medium;
-  width: 100%;
-  color: rgb(164, 155, 165);
-  align-items:  center;
-  display: flex;
-  justify-content: center;
-}
 
-.check{
-  font-family: poppins-Medium;
-  color: rgb(135, 140, 145);
-  font-size: 110%;
-  margin-bottom:2px; 
-  text-align: center;
-}*/
 .footer{
   padding-left:45px;
 }
 /*=====================patient==================*/
 .patientcard{
-  min-height:300px;
-  width: 90%;
-  border: 1px solid;
-  border-color: #666666;
+  min-height:150px;
+  height: auto;
+  width: 100%;
   padding: 10px;
-  box-shadow: 2px 2px 1px 1px #666666;
-  margin-top: 3px;
-  border-radius: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-box-shadow: 0 0 8px #929191;
+  box-shadow: 0 0 8px #929191;
   cursor: pointer;
+  background-color: rgb(228, 230, 227);
+}
+.patientcard:hover{
+  -webkit-box-shadow: 0 0 35px #929191;
+        box-shadow: 0 0 35px #929191;
+        transition-delay:0.2s;
 }
 #card2,#card3{
   width: 45%;
 }
 .cardhead{
   float: left;
-  padding-left:10px;
-  font-weight: 600; 
+  padding-left:20px;
+  font-weight: 600;
+  color: gray;
+  font-family: Poppins-Regular;
 }
 .patientcard-pic{
-  width: 95%;
-  padding-top: 40px;
-  padding-left:30px;
-  padding-right: 30px;
+  width: 80%;
+  height: auto;
 }
 .patientcard-pic1{
   padding-top: 45px;
   padding-left:10%;
   padding-right: 10%;
 }
-.row1{
-  margin-left: 45px;
+
+.pat-first-card{
+  margin-top: 25px;
+  margin-left: 5px;
+  width: 100%
+}
+
+.btnbook:hover{
+  background-color: #008080;
+  color: white;
+}
+.btnnew{
+  background-color: red;
+  color: white;
+}
+.btnnew:hover{
+  background-color: #800000;
+  color: white;
+}
+/*================doctor appointment==============*/
+
+
+
+/* .doc-app-card{
+  width:100%;
+  background-color: red;
+  height:auto;
+  padding: 5px;
+  border-radius:10px;
+  min-height: 100px;
+}
+.doc-app-image{
+  width: 20%;
+  height: auto;
+  float: left;
+}
+.doc-app-image img{
+  max-width: 100px;
+  min-width: 50px;
+  width: 90%;
+  height: auto;
+  border-radius:10px;
+}
+.doc-app-body{
+  width:50%;
+  display: inline-block;
+  background-color: red;
+}
+.doc-app-action{
+  width: 25%;
+  float: right;
+}
+.action-select{
+  float: left;
+}
+.action-btn{
+  display: inline-block;
+}
+.action-btn button{
+  padding: 0px;
+  width:50px;
+} */
+
+
+
+
+
+/*=============================*/
+.medicalrecord input{
+  display: inline-block;
+  width: 30%;
+}
+.medicalrecord select{
+  display: inline-block;
+  width: 30%;
+}
+.medicalrecord{
+  white-space: nowrap;
+  width: 100%;
+  padding-bottom: 2%;
+  padding-left:4%;
+}
+
+.record-btn{
+font-family: Poppins-Regular;
+font-size: 13px;
+line-height: 1.5;
+color: #fff;
+height: 50px;
+border-radius: 25px;
+width: 90px;
+background: #30AE4D;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0 15px;
+}
+/*=======================================*/
+.upload{
+  display: inline-block;
+}
+.upload > input{
+  display: none;
+}
+.upload img{
+  cursor: pointer;
+}
+/*====================*/
+.inputrec{
+  background-color: #e0dbdb;
+  border-radius: 5px;
+  height:35px;
+  padding: 5px;
+  padding-left: 15px;
+  color: rgb(70, 69, 68)
+}
+/*=======================*/
+
+.recordlist{
+  width:100%;
+  margin:auto;
+  background-color:rgb(72, 228, 124);
+  height:50px;
+  padding:5px;
+  margin-bottom:5px;
+  border-radius:5px;
+  font-size:150%;
+  padding-top:10px;
+}
+/*==================doctor card======================*/
+.doctor-main-card{
+ /* max-width: 900px;*/
+  width: 100%;
+}
+.doclower{
+  background-color:rgb(72, 228, 124);
+  width:100%;
+  height:auto;
+  margin-top:4px;
+  padding-bottom: 15px;
+}
+.docup{
+  width:100%;
+  background-color:rgb(240, 240, 218);
+  height:auto;
+}
+.doc-card-image{
+  height:100%;
+  width:20%;
+  padding-left:2%;
+  padding-top:2%;
+  display:inline-block;
+  padding-bottom:10px"
+}
+.doc-card-image img
+{
+  padding-bottom:10px;
+  height:200px;
+  width:200px;
+  object-fit:cover;
+  border-radius:20px"
+}
+.doc-card-info{
+  height:100%;
+  width:70%;
+  float: right;
+  display:inline-block;
+  padding-left:15px;
+  padding-bottom:10px;
+}
+.doc-card-info h2{
+  font-weight:500;
+  color:rgb(105, 100, 100);
+  font-size:280%;
+}
+.doc-card-info label{
+  font-weight:300;
+  font-size:150%;
+}
+.specialization{
+  width:100%;
+  font-size:145%;
+  word-wrap:break-word;
+}
+.doc-address{
+  float:left;
+  height:auto;
+  width:40%;
+  display:inline-block;
+  padding-left:15px;
+}
+.doc-address h2{
+  font-weight:500;
+  color:rgb(105, 100, 100);
+  font-size:160%;
+}
+.address{
+  width:100%;
+  word-wrap:break-word;
+}
+.address h4{
+  font-weight:500;
+  color:rgb(105, 100, 100);
+  font-size:100%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.schedule{
+  height:50px;
+  width:30%;
+  padding-left:15px;
+  display: inline-block;
+}
+.schedule h2{
+  font-weight:500;
+  color:rgb(105, 100, 100);
+  font-size:160%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.schedule h4{
+  font-weight:500;
+  color:rgb(105, 100, 100);
+  font-size:100%;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.fee{
+  float: right;
+  width:25%;
+  height: 50px;
+}
+.time{
+  word-wrap:break-word;
+  padding-bottom:10px;
+}
+.time p{
+  font-size:110%;
 }
 /*============validate-form===================*/
 .validate-input {
@@ -511,10 +696,16 @@ padding-top: 1%;
   .patientcard-pic1{
     width: 45%;
   }
+  .recordlist{
+    font-size:120%;
+  }
 }
 @media (max-width: 612px) {
   .row1{
     margin-left: 20px;
+  }
+  .recordlist{
+    font-size:15px;
   }
 }
 @media (max-width: 576px) {
@@ -531,14 +722,7 @@ padding-top: 1%;
     padding-left: 10px;
     margin-right: 50px;
   }
-  .patientcard-pic1{
-    /*width: 50%;
-    height: auto;
-    min-width: 0;
-    padding-top: 60px;
-    padding-left: 35px;
-    margin-right: 40px;*/
-  }
+
   .footer{
     padding-left: 50px;
   }
@@ -554,6 +738,18 @@ padding-top: 1%;
   .row1{
     margin-left: 10px;
   }
+  .record-btn{
+    float: right;
+    width: 100px;
+    margin-right:150px;
+  }
+  .recordlist{
+    font-size:9px;
+    padding-left: 0;
+    height:auto;
+    padding-top:5px;
+  }
+
 }
 
 
@@ -597,9 +793,10 @@ padding-top: 1%;
     background-color: rgb(105, 89, 105);
   }
   .patientcard{
-    max-width:650px;
+    /*max-width:650px;*/
     margin-top: 15px;
     margin-left: 0;
+    height: auto;
   }
   #card2,#card3{
     width: 90%;
