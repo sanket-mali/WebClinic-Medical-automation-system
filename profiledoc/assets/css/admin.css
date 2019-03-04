@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,500i,600,600i,700,700i,800);
+.list_general{
+    width: 100%;
+    padding-left: 10px;
+}
+.list_general1{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 0;
+    padding-left:25px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 5px #929191;
+  box-shadow: 0 0 5px #929191;
+}
+.list_general1:hover{
+    -webkit-box-shadow: 0 0 40px #929191;
+  box-shadow: 0 0 40px #929191;
+  transition-delay:0.5s;
+}
+.list_general>ul,.list_general1>ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.list_general>ul>li,.list_general1>ul>li{
+    margin:0 -30px;
+    position:relative;
+    padding:15px 30px 5px 120px;
+}
+.list_general>ul>li figure,.list_general1>ul>li figure{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    overflow:hidden;
+    position:absolute;
+    left:30px;top:30px
+}
+.list_general>ul>li figure img,.list_general1>ul>li figure img{
+    width:70px;
+    height:auto;
+    position:absolute;
+    left:50%;
+    top:50%;
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%)}
+.list_general>ul h4,.list_general1>ul h4{
+    font-size:22px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.list_general>ul span,.list_general1>ul span{
+    float:right;
+    color:#adb5bd;
+}
+
+.btn_1,a.btn_1{
+    border:none;
+    color:#fff;
+    padding:10px 15px;
+    display:inline-block;
+    outline:0;
+    font-size:14px;
+    border-radius:25px;
+    line-height:1;
+    width: 130px;
+}
+.btn_1.gray.delete{
+    background:#bbd5e4;
+    color:#4e5155
+}
+
+.btn_1.gray.view,a.btn_1.gray.view{
+    background:#c0c5ca;
+    color:#4e5155
+}
+
+.btn_1.gray.delete:hover,a.btn_1.gray.delete:hover{
+    background:#3599dc;
+    color:#fff
+}
+
+.btn_1.gray.view:hover,a.btn_1.gray.view:hover{
+    background:#343a40;
+    color:#fff;
+    -webkit-box-shadow: 0 0 45px #5f5e5e;
+    box-shadow: 0 0 45px #5f5e5e;
+}
+ul.buttons{
+    list-style:none;
+    margin:0 0 30px;
+    padding:0;
+    padding-right: 50px;
+    padding-top: 30px;
+    position:absolute;
+    top:30px;
+    right:30px
+}
+ul.buttons li{
+    display:inline-block;
+    margin-right:3px;
+}
+@media (max-width:767px){
+    ul.buttons{
+        position:static;
+        padding-top: 0px;
+    }
+}
+
+
+
+@media (max-width:767px){
+    .list_general>ul span{
+    float:none;
+    margin-bottom:5px;
+    }
+}

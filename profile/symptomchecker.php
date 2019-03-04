@@ -128,7 +128,7 @@
                 <li>
                     <a href="book.php">
                         <i class="pe-7s-ticket"></i>
-                        <p>Doctor's Appointment</p>
+                        <p>Appointment</p>
                     </a>
                 </li>
             </ul>

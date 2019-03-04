@@ -31,7 +31,7 @@
 
 	#   check if user already logged in #
 
-	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes" && $_SESSION['doc'] == "true"){
+	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes" && isset($_SESSION['doc'])){
 		header("Location: http://localhost/clinic/v3/profile/dashboard.php");
 	}
 

@@ -289,7 +289,7 @@ iframe {
         transition-delay:0.2s;
 }
 #card2,#card3{
-  width: 45%;
+  width: 100%;
 }
 .cardhead{
   float: left;
@@ -370,6 +370,7 @@ iframe {
   width:50px;
 } */
 
+/*=============docmodadl===================*/
 
 
 

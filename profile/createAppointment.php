@@ -1,6 +1,6 @@
 <!-- ========= * PHP * ===========================================================================-->
 
-<!--    config ---->
+<!--    config -->
 
 <?php
   session_start();
@@ -9,7 +9,7 @@
 ##   check if user already logged in ---->
 
 
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes"  || $_SESSION['doc'] == "true"){
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes"  || !isset($_SESSION['patient'])){
   header("Location: http://localhost/clinic/v3/login.php");
 }
 
@@ -17,6 +17,8 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes"  || $_SESSION
 if(isset($_POST['appointment'])){
 
   $ch = curl_init();
+
+  var_dump($_POST);
 
   curl_setopt_array($ch, array(
     CURLOPT_RETURNTRANSFER => 1,

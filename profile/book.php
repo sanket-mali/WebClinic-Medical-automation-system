@@ -10,7 +10,10 @@
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="Chrissy Collins" name="author">
+	<link href="assets/css/vanillaCalendar.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,9 +29,46 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/check.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/admin.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+	<style>
+        .modal-dialog{
+            width:80%;
+            padding-top:3%;
+            padding-left:15%;
+            height:auto;
+        }
 
+        @media screen and (max-width: 992px) {
+	    .modal-dialog  {
+            width:90%;
+            padding-left:2%;
+			}
+		}
+
+		@import "lesshat";
+
+		.star-ratings-sprite {
+			background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+
+			overflow: hidden;
+			width: 110px;
+			margin: 0;
+			padding:0;
+		}
+		.star-ratings-sprite-rating {
+			background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+
+		}
+
+		#slot{
+			color:black;
+			width:20px;
+		}
+
+    </style>
 </head>
-<body>
+<body >
 
 
 	<!-- ========= * PHP * ===========================================================================-->
@@ -127,7 +167,7 @@
     	</div>
     </div>
 
-    <div class="main-panel">
+    <div class="main-panel" >
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -163,134 +203,180 @@
         </nav>
 
 
-        <div class="content">
+        <div class="content" >
             <div class="container-fluid">
+				<div class="login100-form-title">
+				Search doctor
+				</div>
                 <div class="row">
-                        <div class="container-login100">
-                            <div class="wrap-login100">
-                                <div class="login100-pic">
-                                    <img src="assets/img/search.jpg" style="box-shadow:18px 18px 18px 18px white inset;">
-                                </div>
-                                <form class="login100-form validate-form" id="regForm" method="post" action="book.php">
-                                    <div class="login100-form-title">
-                                        Search doctor
-                                    </div>
-                                    <div class="wrap-input100">
-                                        <input placeholder="location" name="location" class="input100" required>
-                                        <span class="symbol-input100">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
+					<form class=" validate-form" id="regForm" method="post" action="book.php">
+						<div class="doc-search-form col-md-10">
+							<div style="float:left;width:50%;border-right:2px solid #93969b">
+								<input type="text" class="inputrec" name="location" style="width:100%;border-radius:5px 0px 0px 5px;" placeholder="location" required>
+							</div>
+							<div style="display:inline-block;width:50%;">
+								<input type="text" class="inputrec" list="speciality" name="speciality" style="width:100%;border-radius:0px 5px 5px 0px" placeholder="specialization" required>
+								<datalist id="speciality">
+									<option value="General">
+									<option value="Gyno">
+									<option value="opthal">
+								</datalist>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button type="submit" class="btn btn1" id="search" style="width:100%;float:left;padding:6px">Search</button>
+						</div>
+					</form>
+				</div>
 
-                                    <div class="wrap-input100">
-                                        <input placeholder="Speciality" list="speciality" name="speciality" class="input100" required>
-																				<datalist id="speciality">
-																					<option value="General">
-																					<option value="Gyno">
-																					<option value="opthal">
-																				</datalist>
-                                        <span class="symbol-input100">
-                                            <i class="fa fa-stethoscope" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <button type="submit" class="check-form-btn" id="search" style="width:100%;float:right">Search</button>
-                                </form>
-																<br/>
-																<br/>
+					<!--dynamically load-->
+					<?php $x=0; if(isset($rec) && $rec['exists'] == "true"){?>
+					<div class="row">
+							<div style="float:right;margin-right:22px;margin-top:10px">
+								<select id="field">
+									<option value="Rating">Rating</option>
+										<option value="Votes">Votes</option>
+										<option value="Fees">Fees</option>
+								</select>
+								<select id="order">
+									<option value="Asc">Low-to-High</option>
+									<option value="Desc">High-to-Low</option>
+								</select>
+								<button class="btn btn1" style="padding:2px;padding-left:10px;padding-right:10px" onclick="sortedUpdate()">sort</button>
+							</div>
+					</div>
+					<div class="row">
+						<div id="treatment" class="cardbody" style="padding-top:10px">
+                            <div class="card" style="width:100%">
+                                <div class="content" style="padding:0px;width:100%;background-color: rgb(228, 230, 227);border-style:none">
+									<?php foreach($rec['doctor'] as $doc){?>
+										<!--<form method="post" action="createAppointment.php">-->
+											<div class="list_general1" style="margin-bottom:10px;background-color: rgb(255, 255, 255);border:none">
+												<ul>
+													<li>
+														<figure><img id="imid<?php echo $x;?>" <?php if($doc['imid'] != "") echo "src=\"../docs/img/" .$doc['imid'] . "\""; else echo "src=\"assets/img/default-avatar.png\"";?> alt=""></figure>
+														<input type="hidden" name="did" id="did<?php echo $x;?>" value="<?php echo $doc['did'];?>">
+														<small id="expert<?php echo $x;?>"><?php echo $doc['expert'] ?></small>
+														<h4 id="name<?php echo $x;?>">Dr. <?php echo $doc['fname']; ?> <?php  echo $doc['lname']; ?></h4>
+														<p style="font-size:12px;" id="verified<?php echo $x; ?>"><?php if($doc['verified'] == "true") echo "<i class=\"fas fa-check-circle\" style=\"color:green\"></i>&nbsp;&nbsp;Registration Verified"; else echo "<i class=\"fas fa-check-circle\" style=\"color:red\"></i>&nbsp;&nbsp;Unverified Doctor"; ?></p>
+														<div class="star-ratings-sprite"><span style="width:52%" class="star-ratings-sprite-rating"></span></div><br/>
+														<p style="font-size:14px;float:left;margin-bottom:1px" id="city<?php echo $x;?>"><i class="fa fa-address-book"></i>&nbsp;<?php echo $doc['city']; ?>,&nbsp;<p style="font-size:14px;display:inline-block;margin-bottom:1px" id="address<?php echo $x;?>"><?php echo $doc['address'];?></p><br></p>
+														<p style="font-size:14px" id="fees<?php echo $x; ?>"><i class="fa fa-inr"></i>&nbsp;<?php echo $doc['fees']; ?></p>
+														<!--<p><button type="button" id="btnview" data-id="<?//php echo $x;?>" data-toggle="modal" data-target="#myModal" class="btn_1 gray view"><i class="fa fa-fw fa-user"></i> View profile</button></p>-->
+														<ul class="buttons">
+															<li><button type="button" id="btncancel" data-id="<?php echo $x;?>" data-toggle="modal" data-target="#myModal" class="btn_1 gray delete wishlist_close" id="0"><i class="fa fa-check"></i> Book Now</button></li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										<!--</form>-->
+									<?php $x++; }}
+									elseif(isset($rec) && $rec['exists'] == "false")  echo "<div class=\"content\">
+									<div class=\"container-fluid\">
+									<p>No doctor found</p>
+									</div>
+									</div>";  ?>
+								</div>
+							</div>
+						</div>
+					</div>
 
-																<!--dynamically load-->
-																<?php $x=0; if(isset($rec) && $rec['exists'] == "true"){?>
-																	<div class="doctor-main-card"><select id="field"><option value="Rating">Rating</option><option value="Votes">Votes</option>
-																	<option value="Fees">Fees</option></select><select id="order"><option value="Asc">Low-to-High</option><option value="Desc">High-to-Low</option></select><button style="background:green;margin-left:4px;padding:4px" onclick="sortedUpdate()">sort</button></div>
-																 	<?php foreach($rec['doctor'] as $doc){?>
-																		<form class="doctor-main-card" method="post" action="createAppointment.php">
-																<div class="doctor-main-card" style="margin-top:15px;" id="doc<?php echo $x; ?>">
-																	<input type="hidden" name="did" id="did<?php echo $x;?>" value="<?php echo $doc['did'];?>">
-												            <div class="row docup">
-												                <div class="col-md-2">
-																					<div class="doc-card-image"><img id="imid<?php echo $x;?>" <?php if($doc['imid'] != "") echo "src=\"../docs/img/" .$doc['imid'] . "\""; else echo "src=\"assets/img/default-avatar.png\"";?> alt=""></div>
-																				</div>
-																				<div class="col-md-8">
-												                <div class="doc-card-info" >
-												                    <h2 id="name<?php echo $x;?>" >Dr. <?php echo $doc['fname']; ?> <?php echo $doc['lname']; ?></h2>
-												                    <label id="verified<?php echo $x;?>"><?php if($doc['verified'] == "true") echo "<i class=\"fas fa-check-circle\" style=\"color:green\"></i>&nbsp;&nbsp;Registration Verified"; else echo "<i class=\"fas fa-check-circle\" style=\"color:red\"></i>&nbsp;&nbsp;Unverified Doctor"; ?></label>
-												                    <br/><label id="rating<?php echo $x;?>"><?php if($doc['rating'] >= 2.5)
-																																														echo "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\" style=\"color:green\"></i>&nbsp;&nbsp";
-																																													else
-																																														echo "<i class=\"fas fa-thumbs-down\" aria-hidden=\"true\" style=\"color:red\"></i>&nbsp;&nbsp";
-
-																																													echo $doc['rating']*100/5 ."%". "( ".$doc['votes']." votes )"; ?></label>
-												                    <div class="specialization" id="expert<?php echo $x;?>"><p ><?php echo $doc['expert'] ?></p></div>
-																				</div>
-																			</div>
-												            </div>
-																		<div class="row doclower">
-													               <div class="doc-address">
-													                   <h2 id="city<?php echo $x;?>"><?php echo $doc['city'];?></h2>
-													                   <div class="address" id="address<?php echo $x;?>"><p><?php echo $doc['address'];?></p></div>
-													               </div>
-																				<!--doctor schedule-->
-												                 <div>
-																					 	<div class="schedule">
-																						 	<select name="slotid" style="display:none;color:white" id="timeslot<?php echo $x;?>" onchange="getAppointDate(this)"></select>
-																							<input type="text" name="date" id="calender<?php echo $x;?>" style="display:none;padding:2px;color:white" readonly>
-																					 </div>
-												                 </div>
-																			<!--Doctor schedule end-->
-												                <div class="fee">
-												                    <h3 id="fees<?php echo $x;?>">Rs. <?php echo $doc['fees']; ?></h3><br/>
-												                </div>
-																			</div>
-																			<div class="row doclower" style="padding:0px;">
-																			<div class="operation">
-																				<button type="button" class="btn btn1 btnbook" id="<?php echo $x;?>" style="border-right:4px solid #008080;font-weight:500px;border-radius:15px 0px 0px 15px;float:left;width:50%" onclick="fetchSlots(this.id)">Get slots</button>
-																				<button type="submit" name="appointment" class="btn btn1 btnbook" style="float:right;width:50%;border-radius:0px 15px 15px 0px" name="appoint"><div>Make appointment</div></button>
-																			</div>
-												            </div>
-																</div>
-															</form>
-															<?php $x++; }}
-																elseif(isset($rec) && $rec['exists'] == "false")  echo "<div class=\"content\">
-													            <div class=\"container-fluid\">
-																				<p>No doctor found</p>
-																			</div>
-																			</div>";  ?>
-
-
-                            </div>
-                        </div>
-                </div>
             </div>
         </div>
 
 
-        <footer class="footer">
-					<ul>
-						<li>
-							<a href="#">
-								Home
-							</a>
-						</li>
-						<li>
-							<a href="../about.html">
-								About
-							</a>
-						</li>
-						<li>
-						<a href="../contact.html">
-							Contact
-						</a>
-						</li>
-					</ul>
-                <p class="copyright ">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="">&copy;WebclinicTech</a>, made with &hearts;
-                </p>
-        </footer>
 
-    </div>
+
+	</div>
+	<footer class="footer">
+		<ul>
+			<li>
+				<a href="#">
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="../about.html">
+					About
+				</a>
+			</li>
+			<li>
+				<a href="../contact.html">
+					Contact
+				</a>
+			</li>
+		</ul>
+        <p class="copyright ">
+            &copy; <script>document.write(new Date().getFullYear())</script> <a href="">&copy;WebclinicTech</a>, made with &hearts;
+        </p>
+    </footer>
 </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="float:left;width:100%">
 
+	  <!-- Modal content-->
+	  <form method="post" action="createAppointment.php">
+			<div class="modal-content" style="float:left;width:100%">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Book Appointment</h4>
+				</div>
+				<div class="modal-body" style="float:left;width:100%;padding:0;padding-left:15px">
+					<!--calender-->
+					<div class="container" style="float:left;padding-left:0;width:100%">
+						<div id="v-cal" style="float:left">
+							<div class="vcal-header">
+								<button type="button" class="vcal-btn" data-calendar-toggle="previous">
+									<svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+									</svg>
+								</button>
+
+								<div class="vcal-header__label" data-calendar-label="month">
+
+								</div>
+								<button type="button" class="vcal-btn" data-calendar-toggle="next">
+									<svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+										<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="vcal-week">
+								<span>Mon</span>
+								<span>Tue</span>
+								<span>Wed</span>
+								<span>Thu</span>
+								<span>Fri</span>
+								<span>Sat</span>
+								<span>Sun</span>
+							</div>
+							<div class="vcal-body" data-calendar-area="month"></div>
+							<p>
+								<input type="hidden" id="date" data-calendar-label="picked"></span>
+							</p>
+							<button type="button" class="btn_1 gray view wishlist_close" id="fetch">Fetch Slot</button>
+							<h5 >
+								<a href="https://github.com/chrisssycollins">@chrisssycollins</a>
+							</h5>
+						</div>
+						<input type="hidden" id="docid" name="docid" value="">
+						<input type="hidden" id="bookdate" name="bookdate" value="">
+						<div id="displaypos" style="display:inline-block;padding-left:10%;width:40%">
+							<div id="display" style="display:inline-block;padding-left:10%;width:40%">
+							</div>
+						</div>
+					</div>
+
+					<!---->
+				</div>
+				<div style="float:right;padding-right:15px;padding-bottom:15px">
+					<button type="submit" name="appointment" class="btn_1 gray view wishlist_close">Confirm</button>
+				</div>
+			</form>
+		</div>
+    </div>
+</div>
 </body>
 <script>
 var doc1=result['doctor'];
@@ -330,26 +416,25 @@ function sortedUpdate()
 
 		document.getElementById("did"+i).value=doc1[i]['did'];
 
-		if(doc1[i]['verified'] == "true")
+		/*if(doc1[i]['verified'] == "true")
 				document.getElementById("verified"+i).innerHTML="<i class=\"fas fa-check-circle\" style=\"color:green\"></i>&nbsp;&nbsp;Registration Verified";
 		else
 				document.getElementById("verified"+i).innerHTML="<i class=\"fas fa-check-circle\" style=\"color:red\"></i>&nbsp;&nbsp;Unverified Doctor";
-
+		*/
 		if(doc1[i]['imid'] != ""){
 				document.getElementById("imid"+i).src="../docs/img/" + doc1[i]['imid'];
 			}
 		else
 				document.getElementById("imid"+i).src="assets/img/default-avatar.png";
-
+/*
 		if(parseFloat(doc1[i]['rating'])>= 2.5)
 				document.getElementById("rating"+i).innerHTML="<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\" style=\"color:green\"></i>&nbsp;&nbsp;" + parseFloat(doc1[i]['rating']*100/5) + "%" + "( " + doc1[i]['votes'] + " votes )";
 		else
 				document.getElementById("rating"+i).innerHTML="<i class=\"fas fa-thumbs-down\" aria-hidden=\"true\" style=\"color:red\"></i>&nbsp;&nbsp;" + parseFloat(doc1[i]['rating']*100/5) + "%" + "( " + doc1[i]['votes'] + " votes )";
-
-		document.getElementById("expert"+i).innerHTML= doc1[i]['expert'];
+		*/document.getElementById("expert"+i).innerHTML= doc1[i]['expert'];
 		document.getElementById("city"+i).innerHTML= doc1[i]['city'];
 		document.getElementById("address"+i).innerHTML= doc1[i]['address'];
-		document.getElementById("fees"+i).innerHTML= "Rs. " + doc1[i]['fees'];
+		document.getElementById("fees"+i).innerHTML= "<i class=\"fa fa-inr\"></i>&nbsp;" + doc1[i]['fees'];
 
 
 
@@ -401,22 +486,35 @@ function votesSortAsc(){
 function fetchSlots(id){
 	var docID = document.getElementById("did"+id).value;
 
-	var resultslot;
-	$.ajax({url: "http://localhost/clinic/v3/api/appointment/available_slots/" + docID, success : function(result){
-		//resultslot=result['appointment'][0];
-		var pos=document.getElementById("timeslot"+id);
-		pos.style.display="block";
+	var date = getSQLDate(document.getElementById("date").innerText);
+	//var resultslot;
+	$.ajax({url: "http://localhost/clinic/v3/api/appointment/available_slots/" + docID + "/" + date, success : function(result){
+		//resultslot=result['appointment'][0]['day'];
+		document.getElementById("bookdate").value=date;
+		var pos=document.getElementById("displaypos");
+		$('#display').remove();
+		var div1=document.createElement("div");
+		pos.appendChild(div1);
+		div1.id="display";
+		if(result['exists'] == "false"){
+			var label = document.createElement("label");
+			label.innerHTML = "No slots on this day";
+			div1.appendChild(label);
 
-		var nopt = document.createElement('option');
-		nopt.innerHTML = "--";
-		pos.appendChild(nopt);
-
-
-		for (var i = 0; i<result['appointment'].length; i++){
-	    var opt = document.createElement('option');
-	    opt.value = result['appointment'][i]['slotid'];
-	    opt.innerHTML = result['appointment'][i]['day']+" "+result['appointment'][i]['from_time']+" "+result['appointment'][i]['to_time'];
-	    pos.appendChild(opt);
+		}
+		for(var i=0;i<result['appointment'].length;i++)
+		{
+			var label = document.createElement("label");
+			var radio=document.createElement("input");
+			radio.type="radio";
+			radio.name="slotid";
+			radio.id="slotid";
+			radio.value=result['appointment'][i]['slotid'];
+			label.appendChild(radio);
+			label.appendChild(document.createTextNode(result['appointment'][i]['from_time']+ " to " +result['appointment'][i]['to_time']));
+			//radio.innerText=result['appointment'][i]['from_time']+result['appointment'][i]['to_time'];
+			//radio.innerHTML="hgd";
+			div1.appendChild(label);
 		}
 	}});
 
@@ -424,15 +522,9 @@ function fetchSlots(id){
 }
 
 
-function getAppointDate(sel) {
+function getSQLDate(d) {
 
-		var dayOfWeek = sel.options[sel.selectedIndex].text;
-		var today = new Date();
-		var days = {"Sunday": 0, "Monday": 1 , "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6, "Sunday": 7};
-		var day = days[dayOfWeek.substr(0,dayOfWeek.indexOf(' '))];
-    var resultDate = new Date(today.getTime());
-
-    resultDate.setDate(resultDate.getDate() + (day + 7 - resultDate.getDay()) % 7);
+    var resultDate = new Date(d);
 
 		var dd = resultDate.getDate();
 		var mm = resultDate.getMonth()+1;
@@ -444,14 +536,45 @@ function getAppointDate(sel) {
 		if(mm<10){
 		    mm='0'+mm;
 		}
-		var today = yyyy+'-'+mm+'-'+dd;
-		document.getElementById("calender"+sel.id.substr(8)).style.display="block";
-		document.getElementById("calender"+sel.id.substr(8)).value = today;
+		resultDate = yyyy+'-'+mm+'-'+dd;
+    //alert("Tentative appointment on " + resultDate.toDateString());
 
-    alert("Tentative appointment on " + resultDate.toDateString());
+		return resultDate;
 }
 </script>
 
+
+	<script>
+    /*$(document).on("click", ".view", function () {
+     var myBookId = $(this).data('id');
+     $(".modal-title").text( myBookId );
+    $('#myModal').modal('show');
+	});*/
+	</script>
+	<script>
+	var Id;
+		$(document).on("click", ".delete", function () {
+		Id = $(this).data('id');
+		document.getElementById("docid").value=document.getElementById("did"+Id).value;
+		//alert(Id);
+		//$(".modal-title").text( myBookId );
+		});
+	</script>
+	<!--   Calender   -->
+	<script src="assets/js/vanillaCalendar.js" type="text/javascript"></script>
+
+	<script>
+		window.addEventListener('load', function () {
+			vanillaCalendar.init({
+				disablePastDays: true
+			});
+		})
+	</script>
+	<script>
+	$("#fetch").on("click", function () {
+		fetchSlots(Id);
+	});
+	</script>
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>

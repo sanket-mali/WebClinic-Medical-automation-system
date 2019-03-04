@@ -9,34 +9,39 @@
 ##   check if user already logged in ---->
 
 
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes" || $_SESSION['doc'] != "true"){
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes" || !isset($_SESSION['doc'])){
   header("Location: http://localhost/clinic/v3/logindoc.php");
 }
 
+$status = "Requested";
 
 if(isset($_POST['reject'])){
+  $status = "Cancelled";
+}
+elseif(isset($_POST['approve'])){
+  $status = "Approved";
+}
 
-  $ch = curl_init();
 
-  curl_setopt_array($ch, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://localhost/clinic/v3/api/appointment/drop/' . $_POST['appid'],
-    CURLOPT_POST => 1,
-    CURLOPT_POSTFIELDS => $_POST
-  ));
+$ch = curl_init();
 
-  $res = json_decode(curl_exec($ch));
+curl_setopt_array($ch, array(
+  CURLOPT_RETURNTRANSFER => 1,
+  CURLOPT_URL => 'http://localhost/clinic/v3/api/appointment/' . $_POST['appid'],
+  CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => http_build_query(array('status' => $status))
+));
 
-  if($res->success == "true"){
+$res = json_decode(curl_exec($ch));
 
-    echo "Done";
-    header("Location: http://localhost/clinic/v3/profile/dashboard.php");
-  }
-  else{
-    echo $res->message;
-    header("Location: http://localhost/clinic/v3/profile/dashboard.php");
-  }
+if($res->success == "true"){
 
+  echo "Done";
+  header("Location: http://localhost/clinic/v3/profiledoc/dashboard.php");
+}
+else{
+  echo $res->message;
+  header("Location: http://localhost/clinic/v3/profiledoc/dashboard.php");
 }
 
 

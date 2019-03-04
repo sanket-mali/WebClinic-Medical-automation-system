@@ -7,7 +7,8 @@
     width: 96%;
     margin-left: 2%;
     margin-right: 2%;
-    padding: 10px;
+    padding: 0;
+    padding-left:25px;
     border-radius: 5px;
     -webkit-box-shadow: 0 0 5px #929191;
   box-shadow: 0 0 5px #929191;
@@ -25,7 +26,7 @@
 .list_general>ul>li,.list_general1>ul>li{
     margin:0 -30px;
     position:relative;
-    padding:30px 30px 5px 120px;
+    padding:15px 30px 5px 120px;
 }
 .list_general>ul>li figure,.list_general1>ul>li figure{
     width:70px;
@@ -69,7 +70,7 @@
     width: 130px;
 }
 .btn_1.gray.delete{
-    background:#e4bbbb;
+    background:#bbd5e4;
     color:#4e5155
 }
 
@@ -79,9 +80,19 @@
 }
 
 .btn_1.gray.delete:hover,a.btn_1.gray.delete:hover{
-    background:#dc3545;
+    background:#3599dc;
     color:#fff
 }
+
+.btn_1.gray.cancel{
+    background:#ef9781;
+    color:#4e5155
+}
+.btn_1.gray.cancel:hover,a.btn_1.gray.cancel:hover{
+    background:#ef3d10;
+    color:#fff
+}
+
 
 .btn_1.gray.view:hover,a.btn_1.gray.view:hover{
     background:#343a40;
@@ -89,7 +100,6 @@
     -webkit-box-shadow: 0 0 45px #5f5e5e;
     box-shadow: 0 0 45px #5f5e5e;
 }
-
 ul.buttons{
     list-style:none;
     margin:0 0 30px;
@@ -128,4 +138,3 @@ ul.buttons li{
     margin-bottom:5px;
     }
 }
-   

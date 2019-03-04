@@ -41,7 +41,7 @@
 
 	<?php
         session_start();
-        
+
         echo $_SESSION['loggedIn'];
         echo $_SESSION['username'];
         echo $_SESSION['name'];
@@ -52,7 +52,7 @@
 
 	<?php
 
-	if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes"  || $_SESSION['doc'] != "true"){
+	if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != "yes"  || !isset($_SESSION['doc'])){
 		header("Location: http://localhost/clinic/v3/logindoc.php");
 	}
 
@@ -138,7 +138,7 @@
 
 			 			if($res->success == "true"){
 
-			 				var_dump($res);
+			 				#var_dump($res);
 			 			}
 			 			else{
 			 				echo $res->message;
@@ -190,6 +190,18 @@
                     <a href="user.php" class="active">
                         <i class="pe-7s-user"></i>
                         <p>Manage Profile</p>
+                    </a>
+                </li>
+								<li>
+                    <a href="booking.php">
+                        <i class="pe-7s-note2"></i>
+                        <p>Bookings</p>
+                    </a>
+                </li>
+								<li>
+                    <a href="settings.php">
+                        <i class="pe-7s-settings"></i>
+                        <p>Settings</p>
                     </a>
                 </li>
                 <!--<li>

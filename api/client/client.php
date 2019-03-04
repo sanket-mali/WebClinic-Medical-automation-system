@@ -248,10 +248,104 @@ $app->put('/client/update/{uname}/image', function (Request $request, Response $
 
 
 
+$app->get('/client/{rpid}/medicines', function (Request $request, Response $response, array $args) {
+
+  $rpid = $args['rpid'];
+
+  try {
+
+      $database = new Database();
+      $db = $database->getConnection();
+
+      // select all query
+      $query = "SELECT * FROM medicine_rec  WHERE rpid = ?";
+
+      // prepare query statement
+      $stmt = $db->prepare($query);
+      #$username = htmlspecialchars(strip_tags($username));
+      $stmt->bindParam(1,$rpid);
+
+      // execute query
+      $stmt->execute();
+
+      $num = $stmt->rowCount();
 
 
 
+      if($num > 0){
+        $rec = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+        $response = $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write(json_encode(array("exists" => "true" , "record" => $rpid , "medicines" => $rec)));
+
+      }
+      else{
+
+        $response = $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write(json_encode(array("exists" => "false", "message" => "No medicines exists")));
+
+      }
+
+    } catch (PDOException $e) {
+
+
+    }
+
+    return $response;
+
+});
+
+
+$app->get('/client/{cid}/allrecords', function (Request $request, Response $response, array $args) {
+
+  $cid = $args['cid'];
+
+  try {
+
+      $database = new Database();
+      $db = $database->getConnection();
+
+      // select all query
+      $query = "SELECT * FROM `record_pat` WHERE pid = ? ORDER BY date DESC";
+
+      // prepare query statement
+      $stmt = $db->prepare($query);
+      #$username = htmlspecialchars(strip_tags($username));
+      $stmt->bindParam(1,$cid);
+
+      // execute query
+      $stmt->execute();
+
+      $num = $stmt->rowCount();
+
+
+
+      if($num > 0){
+        $rec = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $response = $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write(json_encode(array("exists" => "true" , "client" => $cid , "records" => $rec)));
+
+      }
+      else{
+
+        $response = $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write(json_encode(array("exists" => "false", "message" => "No record exists")));
+
+      }
+
+    } catch (PDOException $e) {
+
+
+    }
+
+    return $response;
+
+});
 
 
 
@@ -323,7 +417,7 @@ $app->post('/client/{uname}/record', function (Request $request, Response $respo
     $db = $database->getConnection();
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $query = "INSERT INTO `record_pat` (`pid`, `did`, `date`, `diagnosis`, `prescid`) VALUES ((SELECT `cid` FROM `client` WHERE `uname` = ? ), NULL, ? , ? , ? )";
+    $query = "INSERT INTO `record_pat` (`pid`, `did`, `date`, `diagnosis`, `prescid`) VALUES ((SELECT `cid` FROM `client` WHERE `uname` = ? ), NULL, ? , NULL , ?)";
 
 
     $stmt = $db->prepare($query);
@@ -333,16 +427,17 @@ $app->post('/client/{uname}/record', function (Request $request, Response $respo
 
     $stmt->bindParam(1,$username);
     $stmt->bindParam(2,$rdate);
-    $stmt->bindParam(3,$request->getParam('diagnosis'));
-    $stmt->bindParam(4,$request->getParam('file_name'));
+    #$stmt->bindParam(3,$request->getParam('diagnosis'));
+    $stmt->bindParam(3,$request->getParam('file_name'));
 
     $stmt->execute();
     $num = $stmt->rowCount();
 
     if($num > 0 ){
+      $rpid = $db->lastInsertId();
       $response = $response->withStatus(200)
                           ->withHeader('Content-Type', 'application/json')
-                          ->write(json_encode(array("success" => "true" , "message" => "Done")));
+                          ->write(json_encode(array("success" => "true" , "message" => "Done", "rpid" => $rpid)));
     }
     else{
       $response = $response->withStatus(200)
@@ -363,6 +458,109 @@ $app->post('/client/{uname}/record', function (Request $request, Response $respo
 
 });
 
+
+
+
+$app->put('/client/{uname}/record', function (Request $request, Response $response, array $args) {
+
+  $username = $args['uname'];
+  $dname = $request->getParam('dname');
+  $diagnosis = $request->getParam('diagnosis');
+  $rpid = $request->getParam('rpid');
+
+  try {
+
+    $database = new Database();
+    $db = $database->getConnection();
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $query = "UPDATE `record_pat` SET dname=?, diagnosis = ? WHERE rpid = ?";
+
+
+    $stmt = $db->prepare($query);
+    $username = htmlspecialchars(strip_tags($username));
+    #$rdate = date("Y-m-d",strtotime(str_replace('/', '-',$request->getParam('date'))));
+
+
+    $stmt->bindParam(1,$dname);
+    $stmt->bindParam(2,$diagnosis);
+    $stmt->bindParam(3,$rpid);
+
+    #$stmt->bindParam(3,$request->getParam('file_name'));
+
+    $stmt->execute();
+    $num = $stmt->rowCount();
+
+
+    # ----- get medicines ---------- #
+
+    $database = new Database();
+    $db = $database->getConnection();
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $query = "INSERT INTO medicine_rec(rpid, mname, time,repetition, duration) VALUES ";
+    $query_temp = "(?, ?, ?, ?, ?)";
+    $meds = 0;
+
+    for($i = 0 ; ; $i++){
+      if($request->getParam('mname'. $i) !== null){
+        $meds++;
+        $query = $i == 0 ? $query . $query_temp : $query . ", " . $query_temp;
+      }
+      else{
+        break;
+      }
+    }
+
+    $stmt = $db->prepare($query);
+    $par = 0;
+
+    for($i = 0 ; $i < $meds; $i++){
+      $mname = $request->getParam('mname'. $i);
+      $time = $request->getParam('time'. $i);
+      $repetition = $request->getParam('repetition'. $i);
+      $duration = $request->getParam('duration'. $i);
+
+      $stmt->bindValue($par + 1,$rpid);
+      $stmt->bindValue($par + 2,$mname);
+      $stmt->bindValue($par + 3,$time);
+      $stmt->bindValue($par + 4,$repetition);
+      $stmt->bindValue($par + 5,$duration);
+
+      $par += 5;
+
+    }
+
+    $stmt->execute();
+    $num = $stmt->rowCount();
+
+
+    # ------------------------------ #
+
+    if($num > 0 ){
+
+      $response = $response->withStatus(200)
+                          ->withHeader('Content-Type', 'application/json')
+                          ->write(json_encode(array("success" => "true" , "message" => "Done", "rec" => $num, "query" => $query)));
+    }
+    else{
+      $response = $response->withStatus(200)
+                          ->withHeader('Content-Type', 'application/json')
+                          ->write(json_encode(array("success" => "false", "message" => "Error")));
+    }
+
+  }
+  catch (PDOException $e) {
+      $response = $response->withStatus(200)
+                          ->withHeader('Content-Type', 'application/json')
+                          ->write(json_encode(array("success" => "false", "message" => $e->getMessage())));
+
+  }
+
+  return $response;
+
+
+});
 
 
 

@@ -27,7 +27,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/check.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-
 </head>
 <body>
 
@@ -69,7 +68,7 @@
 	$file_name = "";
   $status = "";
 
-  ############		Profile Image Upload ##################
+  ############		Prescription Upload ##################
   if(isset($_FILES['prescription'])){
 
   			$errors= array();
@@ -207,9 +206,7 @@
 									</p>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Action1</a></li>
-								<li><a href="#">Action2</a></li>
-								<li><a href="#">Action 3</a></li>
+
 								<li class="divider"></li>
 								<li><a href="../logout.php">Logout</a></li>
 							</ul>
@@ -223,8 +220,8 @@
 		<div class="content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="container-login100">
-						<div class="wrap-login100">
+					<div >
+						<div >
 							<div class="login100-form-title">
 								Medical records
 							</div>
@@ -232,31 +229,15 @@
 							<div class="recordsearch" style="width:100%">
 								<h4 style="margin-left:10px">Upload Document</h4>
 								<br/>
-								<div style="width:100%;padding-left:10px">
-									<div id="upim" style="float:left;width:6%">
-										<div class="upload">
-											<label for="doc">
-												<img src="assets/img/upload.png" style="width:90%;max-height:35px">
-											</label>
-											<input type="file" id="doc" name="prescription">
-										</div>
-									</div>
-									<div id="updt" style="width:3%;display:inline-block"></div>
-									<div style="display:inline-block;width:35%">
-										<input type="date" class="inputrec" name="date" style="width:100%">
-									</div>
-									<div style="width:2%;display:inline-block"></div>
-									<div id="upds" style="display:inline-block;width:35%">
-										<input type="text" class="inputrec" placeholder="Disease" name="diagnosis" style="width:100%">
-									</div>
 									<div id="upbt" style="float:right;width:15%">
-										<input type="submit" value="Upload" class="btn btn1" style="width:100%;padding:2%;height:35px">
+											<a href="uploaddoc.php" class="btn btn1" style="width:100%;padding:2%;height:35px;padding-top:8px">Upload Document</a>
 									</div>
-								</div>
-							</div>
-							</form>
-							
+									<!--<input type="submit" value="Upload" class="btn btn1" style="width:100%;padding:2%;height:35px">-->
 
+								</div>
+							</form>
+							</div>
+							<br>
 							<div class="wrap-table100">
 								<div class="table100">
 									<table>
@@ -274,7 +255,7 @@
 											if($rec['prescid'] != ""){
 													echo "<tr onclick=\"window.location='../docs/prescription/". $rec['prescid']."';\">";
 													echo	"    	<td>" . $rec['rpid'] ."</td>";
-													echo	"		<td>" . $rec['did'] ."</td>";
+													echo	"		<td>" . $rec['dname'] ."</td>";
 													echo	"		<td>" . $rec['diagnosis'] ."</td>";
 													echo	"    <td>" . $rec['date'] . "</td>";
 													echo  "</tr>";
@@ -288,8 +269,6 @@
 				</div>
 			</div>
 		</div>
-
-
 				<footer class="footer">
 					<ul>
 						<li>
@@ -317,17 +296,17 @@
 </div>
 
 
-</body>
-
-    <!--   Core JS Files   -->
-    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+  </div>
+</div></body>
+  <!--   Core JS Files   -->
+  <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
 	<script src="assets/js/chartist.min.js"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="assets/js/bootstrap-notify.js"></script>
 
 	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 </html>

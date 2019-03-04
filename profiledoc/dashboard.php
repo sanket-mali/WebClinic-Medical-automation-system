@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/check.css">
     <!--<link rel="stylesheet" href="assets\fonts\font-awesome-4.7.0\css\font-awesome.min.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/admin.css">
 </head>
 <body>
 
@@ -57,7 +57,7 @@
 
 	<?php
 
-		  header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Origin: *");
 
 
       $date = date('Y-m-d', time());
@@ -70,7 +70,7 @@
 
       curl_setopt_array($ch, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://localhost/clinic/v3/api/appointments/doctor/' . $_SESSION['username'] ."/". $date
+        CURLOPT_URL => 'http://localhost/clinic/v3/api/appointments/doctor/approved/' . $_SESSION['username'] ."/". $date
       ));
 
 
@@ -109,19 +109,19 @@
                         <p>Manage Profile</p>
                     </a>
                 </li>
-                <!--<li>
-                    <a href="medicalrecord.php">
+                <li>
+                    <a href="booking.php">
                         <i class="pe-7s-note2"></i>
-                        <p>Medical Record</p>
+                        <p>Bookings</p>
                     </a>
                 </li>
                 <li>
-                    <a href="symptomchecker.php">
-                        <i class="pe-7s-help1"></i>
-                        <p>Symptom Checker</p>
+                    <a href="settings.php">
+                        <i class="pe-7s-settings"></i>
+                        <p>Settings</p>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a href="book.php">
                         <i class="pe-7s-ticket"></i>
                         <p>Doctor's Appointment</p>
@@ -153,12 +153,9 @@
 										<b class="caret"></b>
 								</p>
 						    </a>
-					<ul class="dropdown-menu">
-					        <li><a href="#">Action1</a></li>
-							<li><a href="#">Action2</a></li>
-							<li><a href="#">Action 3</a></li>
-							<li class="divider"></li>
-							<li><a href="../logout.php">Logout</a></li>
+					        <ul class="dropdown-menu">
+                                <li class="divider"></li>
+                                <li><a href="../logout.php">Logout</a></li>
 							</ul>
 						</li>
                     </ul>
@@ -169,103 +166,69 @@
 
         <div class="content">
             <div class="container-fluid">
-               <!---->
                 <div class="row ">
-                  <form method="post" action="dashboard.php">
-                    <div class="col-md-5">
-                      <div class="card card-user">
-                        <input name="date" type="date" style="width:100%">
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="card card-user">
-                        <button class="btn btn1" name="search" id="search" style="padding:0px;"> Search</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="row" style="padding-left:10%">
-                    <div class="col-md-16 card content" style="padding-bottom:0">
-                              <!-- -->
-                              <?php $x=0; if(isset($appoint) && $appoint['exists'] == "true"){?>
-                              <?php foreach($appoint['appointments'] as $apt){?>
-                                <form class="doctor-main-card" method="post" action="approveAppointment.php">
-                                    <div class="doctor-main-card" style="margin-top:15px;" id="doc<?php echo $x; ?>">
-                                      <input type="hidden" name="appid" id="appid<?php echo $x;?>" value="<?php echo $apt['appid']; ?>">
-                                        <div class="row docup">
-                                            <div class="col-md-8">
-                                            <div class="doc-card-info" >
-                                                <h2 id="name<?php echo $x;?>" ><?php echo $apt['cfname']; ?> <?php echo $apt['clname']; ?></h2>
+                    <div class="col-sm-16">
+                        <!---->
+												<h4 style="padding-left:15px">Today's Appointments</h4>
+                            <div class="cardbody" style="padding-top:0px">
+                                <div class="card" style="width:100%">
+                                    <div class="content" style="padding:0px;width:100%;background-color: rgb(228, 230, 227);border-style:none">
+                                        <!-- -->
+                                        <?php $x=0; if(isset($appoint) && $appoint['exists'] == "true"){?>
+                                        <?php foreach($appoint['appointments'] as $apt){?>
+                                        <form method="post" action="approveAppointment.php">
+                                            <div class="list_general1" id="doc<?php echo $x; ?>" style="margin-bottom:10px;background-color: rgb(255, 255, 255);border:none">
+                                                <ul>
+                                                    <li style="padding-left:50px">
+                                                        <input type="hidden" name="appid" id="appid<?php echo $x;?>" value="<?php echo $apt['appid']; ?>">
+                                                        <h4 style="color:black" id="name<?php echo $x;?>" ><?php echo $apt['cfname']; ?> <?php echo $apt['clname']; ?></h4>
+                                                        <p style="font-size:14px;color:black" id="gender<?php echo $x; ?>"><i class="fa fa-venus-mars"></i>&nbsp;<?php echo $apt['gender']; ?></p>
+                                                        <p style="font-size:14px;color:black" id="dob<?php echo $x; ?>"><i class="fa fa-calendar"></i>DOB:&nbsp;<?php echo $apt['dob']; ?></p>
+                                                        <p style="font-size:14px;color:black" id="city<?php echo $x; ?>"><i class="fa fa-address-book"></i>&nbsp;<?php echo $apt['city']; ?>,&nbsp;<?php echo $apt['address'];?> <i class="fa fa-calendar"></i>&nbsp;<?php echo $apt['date'];?>&nbsp;&nbsp;
+																													<i class="fa fa-clock-o"></i>&nbsp;<?php echo $apt['time'];?><br></p>
+                                                        <ul class="buttons">
+                                                            <li><a id="manage" class="btn_1 gray delete" name="manage" href="managepat.php?var=<?php echo $apt['cid'] ?>"><i class="fas fa-note2"></i>See details<a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                          </div>
-                                        </div>
-                                        <div class="row doclower">
-                                             <div class="doc-address">
-                                                 <h2 id="city<?php echo $x;?>"><?php echo $apt['city']; ?></h2>
-                                                 <div class="address" id="address<?php echo $x;?>"><p><?php echo $apt['address']; ?></p></div>
-                                             </div>
-                                            <!--doctor schedule-->
-                                             <div>
-                                                <div class="schedule">
-                                                  <h2  id="calenderdate<?php echo $x;?>" >Date: <?php echo $apt['date']?></h2>
-                                                  <h4  id="calendertime<?php echo $x;?>" >Time: <?php echo $apt['time']?></h4>
-                                                  <h4  id="dob<?php echo $x;?>" >DOB: <?php echo $apt['dob']?></h4>
-                                               </div>
-                                            </div>
-                                          <!--Doctor schedule end-->
-                                            <div class="fee" style="font-size:150%">
-                                                <h3 id="gender<?php echo $x;?>">Gender : <?php echo $apt['gender']; ?></h3><br/>
-                                            </div>
-                                        </div>
-                                        <div class="row doclower" style="padding:0px;">
-                                          <div class="operation">
-                                            <button type="button" class="btn btnbook1" id="<?php echo $x;?>" style="font-weight:500px;border-radius:15px 0px 0px 15px;float:left;width:50%" >Approve</button>
-                                            <button type="submit" class="btn btn1 btnbook2" style="float:right;width:50%;border-radius:0px 15px 15px 0px" name="reject"><div>Reject</div></button>
-                                          </div>
-                                        </div>
+                                        </form>
+                                        <?php $x++; }}
+                                        elseif(isset($appoint) && $appoint['exists'] == "false")  echo "
+                                                <p style=\"text-align:center\">No appointment found</p>"  ?>
+                                        <!---->
                                     </div>
-                                  </form>
-                          <?php $x++; }}
-                            elseif(isset($appoint) && $appoint['exists'] == "false")  echo "<div class=\"content\">
-                                  <div class=\"container-fluid\">
-                                    <p>No appointment found</p>
-                                  </div>
-                                  </div>";  ?>
-
-
-
-
-                      <!---->
+                                </div>
+                            </div>
+                        <!---->
                     </div>
                 </div>
-                <!---->
-            </div>
+           </div>
         </div>
 
 
         <footer class="footer">
-					<ul>
-						<li>
-							<a href="#">
-								Home
-							</a>
-						</li>
-						<li>
-							<a href="../about.html">
-								About
-							</a>
-						</li>
-						<li>
-						<a href="../contact.html">
-							Contact
-						</a>
-						</li>
-					</ul>
-                <p class="copyright ">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="">&copy;WebclinicTech</a>, made with &hearts;
-                </p>
+            <ul>
+                <li>
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="../about.html">
+                        About
+                    </a>
+                </li>
+                <li>
+                <a href="../contact.html">
+                    Contact
+                </a>
+                </li>
+            </ul>
+            <p class="copyright ">
+                &copy; <script>document.write(new Date().getFullYear())</script> <a href="">&copy;WebclinicTech</a>, made with &hearts;
+            </p>
         </footer>
-
     </div>
 </div>
 

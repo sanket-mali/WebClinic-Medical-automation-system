@@ -30,7 +30,7 @@
 
 	#   check if user already logged in #
 
-	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes" && $_SESSION['doc'] == "false"){
+	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes" && isset($_SESSION['patient'])){
 		header("Location: http://localhost/clinic/v3/profile/dashboard.php");
 	}
 
@@ -54,6 +54,8 @@
 				if($res->success == "true"){
 
 					echo "Done";
+
+
 					header("Location: http://localhost/clinic/v3/login.php");
 				}
 				else{
